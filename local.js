@@ -35,16 +35,17 @@ moment.updateLocale('en', {
  *
  **/
 
-const time_to_event = moment([2031, 0, 1]);
+const time_to_event = moment([2019, 5, 22]);
 
 /******/
 
 var years_to_event = time_to_event.diff(moment(), 'years', true).toFixed(1);
 var months_to_event = time_to_event.diff(moment(), 'months', true).toFixed(1);
 var days_to_event = time_to_event.diff(moment(), 'days', true).toFixed(1);
+var hours_to_event = time_to_event.diff(moment(), 'hours', true).toFixed(1);
 
 var between_now_and_event = time_to_event.diff(moment());
-var duration = moment.duration(between_now_and_event).minutes();
+var duration = moment.duration(between_now_and_event).asHours();
 
 
 /*
@@ -56,7 +57,7 @@ var duration = moment.duration(between_now_and_event).minutes();
 const marquee_message =
   `<li id="xkcd"><marquee>
 
-  1.5˚ Climate Crisis ${years_to_event} years <span id="minutes" class='part'>${duration}</span>min
+  Only ${hours_to_event} hours until happy hour.
 
   </marquee></li>`;
 
